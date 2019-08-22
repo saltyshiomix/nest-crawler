@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "declaration": true,
+    "strict": true,
+    "pretty": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "incremental": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+  },
+  "include": [
+    "src",
+  ],
+}
