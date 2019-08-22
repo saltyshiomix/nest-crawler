@@ -1,8 +1,23 @@
 {
   "name": "nest-crawler",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:saltyshiomix/nest-crawler.git",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.13",
+    "scrape-it": "^5.1.4"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^6.5.3",
+    "@types/node": "^12.7.2",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.0",
+    "rxjs": "^6.5.2",
+    "typescript": "^3.5.3"
+  }
 }
