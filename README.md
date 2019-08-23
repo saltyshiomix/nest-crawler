@@ -1,7 +1,8 @@
 <p align="center">
   <img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo">
 </p>
-<p align="center">Nest Crawler</p>
+<p align="center">😎 nest-crawler 😎</p>
+<p align="center">Crawler and Scraper for NestJS</p>
 <p align="center">
   <img src="https://img.shields.io/npm/v/nest-crawler.svg" alt="NPM Version">
   <img src="https://img.shields.io/npm/l/nest-crawler.svg" alt="Package License (MIT)">
@@ -16,6 +17,8 @@ $ npm install --save nest-crawler
 
 ## Usage
 
+First, register it in the application module so that Nest can handle dependencies:
+
 ```ts
 import { Module } from '@nestjs/common';
 import { CrawlerModule } from 'nest-crawler';
@@ -25,15 +28,32 @@ import { CrawlerModule } from 'nest-crawler';
     CrawlerModule,
   ],
 })
-export class MyModule {}
+export class AppModule {}
 ```
+
+Then, just import it and use it:
+
+**my-crawler.module.ts**
+
+```ts
+import { Module } from '@nestjs/common';
+import { CrawlerModule } from 'nest-crawler';
+@Module({
+  imports: [
+    CrawlerModule,
+  ],
+})
+export class MyCrawlerModule {}
+```
+
+**my-crawler.service.ts**
 
 ```ts
 import { Injectable } from '@nestjs/common';
 import { CrawlerService } from 'nest-crawler';
 
 @Injectable()
-export class MyService {
+export class MyCrawlerService {
   constructor(
     private readonly crawler: CrawlerService,
   ) {}
