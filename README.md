@@ -58,18 +58,21 @@ export class MyCrawlerService {
     private readonly crawler: CrawlerService,
   ) {}
 
-  // scrape the specific page
+  // scraping the specific page
   public async scrape(): Promise<void> {
     interface ExampleCom {
       title: string;
       info: string;
     }
 
-    const data = await this.crawler.scrape('http://example.com', {
-      title: 'h1',
-      info: {
-        selector: 'p > a',
-        attr: 'href',
+    const data: ExampleCom = await this.crawler.fetch({
+      target: 'http://example.com',
+      fetch: {
+        title: 'h1',
+        info: {
+          selector: 'p > a',
+          attr: 'href',
+        },
       },
     });
 
@@ -80,13 +83,13 @@ export class MyCrawlerService {
     // }
   }
 
-  // crawl the pages according to the config
+  // crawling multi pages is also supported
   public async crawl(): Promise<void> {
     interface HackerNewsPage {
       title: string;
     }
 
-    const pages: HackerNewsPage[] = await this.crawler.crawl({
+    const pages: HackerNewsPage[] = await this.crawler.fetch({
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
@@ -94,14 +97,14 @@ export class MyCrawlerService {
           convert: (path) => `https://news.ycombinator.com/${path}`,
         },
       },
-      each: {
+      fetch: {
         title: '.title',
       },
     });
 
     console.log(pages);
     // [
-    //   { title: 'An easiest scraping and crawling module for NestJS' },
+    //   { title: 'An easiest crawling and scraping module for NestJS' },
     //   { title: 'A minimalistic boilerplate on top of Webpack, Babel, TypeScript and React' },
     //   ...
     //   ...
