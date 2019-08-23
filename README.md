@@ -4,7 +4,7 @@
 <p align="center">Nest Crawler</p>
 <p align="center">
   <img src="https://img.shields.io/npm/v/nest-crawler.svg" alt="NPM Version">
-  <img src="https://img.shields.io/npm/l/nest-crawler.svg" alt="Package is MIT License">
+  <img src="https://img.shields.io/npm/l/nest-crawler.svg" alt="Package License (MIT)">
   <img src="https://img.shields.io/npm/dm/nest-crawler.svg" alt="NPM Downloads">
 </p>
 
@@ -31,7 +31,6 @@ export class MyModule {}
 ```ts
 import { Injectable } from '@nestjs/common';
 import { CrawlerService } from 'nest-crawler';
-import { Cron, Interval, Timeout, NestSchedule } from 'nest-schedule';
 
 @Injectable()
 export class MyService {
