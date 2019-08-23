@@ -355,6 +355,28 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
   integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
 
+"@web-master/node-web-crawler@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.2.0.tgz#c063ff76480999546c886d04d8c8a19cc8383361"
+  integrity sha512-sZPt7a7UcweFPB7txvU4h0SUbdtJjaToDzK48EG9rncKZKCCbNDMlRlIaC7uQXbcNfIi8/szzjNPFiIAOY76Zg==
+  dependencies:
+    "@web-master/node-web-scraper" "^0.2.0"
+
+"@web-master/node-web-fetch@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.2.0.tgz#aa61b19167af6ee2a0a52e059a0bfb448f90cf88"
+  integrity sha512-hpO5Bt80hkzLwxtw22ubvLSsBA4QGpv4jbUVDEHUz41rAK932kvl0PSWa1s+dZLm0yvJMvPQxnPIn7Up8v6scw==
+  dependencies:
+    "@web-master/node-web-crawler" "^0.2.0"
+    "@web-master/node-web-scraper" "^0.2.0"
+
+"@web-master/node-web-scraper@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.2.0.tgz#02340a312c412d29b11dfba6820a2bc2d57865f1"
+  integrity sha512-MZFLpf/0WB8mBYDOxGMuOLf6kOkO+Fce0/2iMZpToauwRb37R1skJ2jEEo8IZUsd2iTcF/A2Sd0IKlkXW/7rTg==
+  dependencies:
+    scrape-it "^5.1.4"
+
 abab@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
