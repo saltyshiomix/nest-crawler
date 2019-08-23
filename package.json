@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test": "ava",
-    "build": "rimraf dist && tsc --project tsconfig.build.json"
+    "build": "rimraf dist && tsc --project tsconfig.build.json",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@types/cheerio": "^0.22.13",
