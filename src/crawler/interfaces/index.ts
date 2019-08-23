@@ -7,7 +7,10 @@ import {
 
 interface ScrapeOptionLinks {
   url: string;
-  links: ScrapeOptionList;
+  iterator: string | {
+    selector: string;
+    convert?: (link: string) => string;
+  };
 }
 
 interface CrawlerConfig {

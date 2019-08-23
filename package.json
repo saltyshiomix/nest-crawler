@@ -6,7 +6,8 @@
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && tsc"
+    "test": "ava",
+    "build": "rimraf dist && tsc --project tsconfig.build.json"
   },
   "dependencies": {
     "@types/cheerio": "^0.22.13",
@@ -15,9 +16,23 @@
   "devDependencies": {
     "@nestjs/common": "^6.5.3",
     "@types/node": "^12.7.2",
+    "ava": "^2.3.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rxjs": "^6.5.2",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^6"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }
