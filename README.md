@@ -7,3 +7,87 @@
   <img src="https://img.shields.io/npm/l/nest-crawler.svg" alt="Package is MIT License">
   <img src="https://img.shields.io/npm/dm/nest-crawler.svg" alt="NPM Downloads">
 </p>
+
+## Installation
+
+```bash
+$ npm install --save nest-crawler
+```
+
+## Usage
+
+```ts
+import { Module } from '@nestjs/common';
+import { CrawlerModule } from 'nest-crawler';
+
+@Module({
+  imports: [
+    CrawlerModule,
+  ],
+})
+export class MyModule {}
+```
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { CrawlerService } from 'nest-crawler';
+import { Cron, Interval, Timeout, NestSchedule } from 'nest-schedule';
+
+@Injectable()
+export class MyService {
+  constructor(
+    private readonly crawler: CrawlerService,
+  ) {}
+
+  // scrape the specific page
+  public async scrape(): Promise<void> {
+    interface ExampleCom {
+      title: string;
+      info: string;
+    }
+
+    const data = await this.crawler.scrape('http://example.com', {
+      title: 'h1',
+      info: {
+        selector: 'p > a',
+        attr: 'href',
+      },
+    });
+
+    console.log(data);
+    // {
+    //   title: 'Example Domain',
+    //   info: 'http://www.iana.org/domains/example'
+    // }
+  }
+
+  // crawl the pages according to the config
+  public async crawl(): Promise<void> {
+    interface HackerNewsPage {
+      title: string;
+    }
+
+    const pages: HackerNewsPage[] = await this.crawler.crawl({
+      target: {
+        url: 'https://news.ycombinator.com',
+        iterator: {
+          selector: 'span.age > a',
+          convert: (path) => `https://news.ycombinator.com/${path}`,
+        },
+      },
+      each: {
+        title: '.title',
+      },
+    });
+
+    console.log(pages);
+    // [
+    //   { title: 'An easiest scraping and crawling module for NestJS' },
+    //   { title: 'A minimalistic boilerplate on top of Webpack, Babel, TypeScript and React' },
+    //   ...
+    //   ...
+    //   { title: '[Experimental] React SSR as a view template engine' }
+    // ]
+  }
+}
+```

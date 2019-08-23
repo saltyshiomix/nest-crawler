@@ -1,13 +1,34 @@
 {
   "name": "nest-crawler",
-  "version": "0.0.0",
-  "main": "dist/index.js",
+  "version": "0.1.0",
+  "description": "An easiest scraping and crawling module for NestJS",
   "repository": "git@github.com:saltyshiomix/nest-crawler.git",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/saltyshiomix/nest-crawler",
+  "keywords": [
+    "crawler",
+    "scraper",
+    "nest",
+    "nestjs",
+    "nest.js",
+    "node",
+    "nodejs",
+    "node.js",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/saltyshiomix/nest-crawler/issues",
+    "email": "shiono.yoshihide@gmail.com"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "ava",
-    "build": "rimraf dist && tsc --project tsconfig.build.json"
+    "build": "rimraf dist && tsc --project tsconfig.build.json",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@types/cheerio": "^0.22.13",
