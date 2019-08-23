@@ -31,9 +31,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@types/cheerio": "^0.22.13",
-    "@web-master/node-web-fetch": "^0.2.0",
-    "scrape-it": "^5.1.4"
+    "@web-master/node-web-fetch": "^0.2.0"
   },
   "devDependencies": {
     "@nestjs/common": "^6.5.3",
