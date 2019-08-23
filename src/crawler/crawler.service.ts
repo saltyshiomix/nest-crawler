@@ -7,6 +7,14 @@ import {
 } from './interfaces';
 import { isArrayString } from './utils';
 
+interface UrlObject {
+  url: string;
+}
+
+interface UrlHolder {
+  urls: UrlObject[];
+}
+
 @Injectable()
 export class CrawlerService {
   public async crawl<TResult>(config: CrawlerConfig): Promise<TResult[]> {
@@ -15,7 +23,7 @@ export class CrawlerService {
   }
 
   public async scrape<TResult>(url: string | object, options: ScrapeOptions): Promise<TResult> {
-    const { data } = await scrape<TResult>(url, options);
+    const { data } = await scrape(url, options);
     return data;
   }
 
@@ -23,8 +31,43 @@ export class CrawlerService {
     if (isArrayString(possibleUrls)) {
       return possibleUrls as string[];
     }
-    const { url, links } = possibleUrls as ScrapeOptionLinks;
-    return this.scrape<string[]>(url, { links });
+
+    const { url, iterator } = possibleUrls as ScrapeOptionLinks;
+    let holder: UrlHolder;
+    if (typeof iterator === 'string') {
+      holder = await this.scrape(url, {
+        urls: {
+          listItem: iterator,
+          data: {
+            url: { attr: 'href' },
+          },
+        },
+      });
+      return this.extractUrls(holder);
+    } else {
+      const { selector, convert } = iterator;
+      holder = await this.scrape(url, {
+        urls: {
+          listItem: selector,
+          data: {
+            url: { attr: 'href' },
+          },
+        },
+      });
+      return this.extractUrls(holder, convert);
+    }
+  }
+
+  private extractUrls(holder: UrlHolder, convert?: (link: string) => string): string[] {
+    const urls: string[] = [];
+    for (let i = 0; i < holder.urls.length; i++) {
+      let { url } = holder.urls[i];
+      if (convert) {
+        url = convert(url);
+      }
+      urls.push(url);
+    }
+    return urls;
   }
 
   private async crawlAll<TResult>(urls: string[], options: ScrapeOptions): Promise<TResult[]> {
