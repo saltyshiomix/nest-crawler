@@ -15,11 +15,17 @@ interface ScrapeOptionLinks {
 
 interface CrawlerConfig {
   target: string[] | ScrapeOptionLinks;
-  each: ScrapeOptions;
+  fetch: ScrapeOptions;
+}
+
+interface ScraperConfig {
+  target: string;
+  fetch: ScrapeOptions;
 }
 
 export {
   CrawlerConfig,
+  ScraperConfig,
   ScrapeOptions,
   ScrapeOptionLinks,
   ScrapeOptionElement,
