@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import * as scrape from 'scrape-it';
 import {
   CrawlerConfig,
+  ScraperConfig,
   ScrapeOptions,
   ScrapeOptionLinks,
 } from './interfaces';
@@ -15,19 +16,41 @@ interface UrlHolder {
   urls: UrlObject[];
 }
 
+type TResult<T> = T extends Array<infer R> ? R[] : T;
+
 @Injectable()
 export class CrawlerService {
-  public async crawl<TResult>(config: CrawlerConfig): Promise<TResult[]> {
-    const urls: string[] = await this.resolveUrls(config.target);
-    return this.crawlAll<TResult>(urls, config.each);
+  public async fetch<T>(config: CrawlerConfig | ScraperConfig): Promise<TResult<T>> {
+    if (this.isCrawlerConfig(config)) {
+      return this.crawl(config) as Promise<TResult<T>>;
+    }
+    if (this.isScraperConfig(config)) {
+      const { target, fetch } = config;
+      return this.scrape(target, fetch);
+    }
+    throw new Error('config must be one of CrawlerConfig or ScraperConfig');
   }
 
-  public async scrape<TResult>(url: string | object, options: ScrapeOptions): Promise<TResult> {
+  private isCrawlerConfig(config: any): config is CrawlerConfig {
+    return !this.isScraperConfig(config);
+  }
+
+  private isScraperConfig(config: any): config is ScraperConfig {
+    return typeof config.target === 'string';
+  }
+
+  private async crawl<T>(config: CrawlerConfig): Promise<T[]> {
+    const { target, fetch } = config;
+    const urls: string[] = await this.resolve(target);
+    return this.crawlAll<T>(urls, fetch);
+  }
+
+  private async scrape<T>(url: string | object, options: ScrapeOptions): Promise<T> {
     const { data } = await scrape(url, options);
     return data;
   }
 
-  private async resolveUrls(possibleUrls: string[] | ScrapeOptionLinks): Promise<string[]> {
+  private async resolve(possibleUrls: string[] | ScrapeOptionLinks): Promise<string[]> {
     if (isArrayString(possibleUrls)) {
       return possibleUrls as string[];
     }
@@ -70,10 +93,13 @@ export class CrawlerService {
     return urls;
   }
 
-  private async crawlAll<TResult>(urls: string[], options: ScrapeOptions): Promise<TResult[]> {
-    const results: TResult[] = [];
+  private async crawlAll<T>(urls: string[], options: ScrapeOptions): Promise<T[]> {
+    const results = [];
     for (let i = 0; i < urls.length; i++) {
-      results.push(await this.scrape<TResult>(urls[i], options));
+      results.push(await this.scrape<T>(urls[i], options));
+      if (i == 1) {
+        break;
+      }
     }
     return results;
   }

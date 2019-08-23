@@ -1,6 +1,5 @@
 import ava, { TestInterface } from 'ava';
 import { CrawlerService } from './crawler.service';
-import { CrawlerConfig } from './interfaces';
 
 const test = ava as TestInterface<{ crawler: CrawlerService }>;
 
@@ -18,11 +17,14 @@ test('it can scrape one page as a object', async t => {
 
   const { crawler } = t.context;
 
-  const actual: ExampleCom = await crawler.scrape('http://example.com', {
-    title: 'h1',
-    info: {
-      selector: 'p > a',
-      attr: 'href',
+  const actual: ExampleCom = await crawler.fetch({
+    target: 'http://example.com',
+    fetch: {
+      title: 'h1',
+      info: {
+        selector: 'p > a',
+        attr: 'href',
+      },
     },
   });
 
@@ -37,13 +39,16 @@ test('it can scrape one page as a list object', async t => {
 
   const { crawler } = t.context;
 
-  const actual: Wikipadia = await crawler.scrape('https://www.wikipedia.org', {
-    urls: {
-      listItem: '.central-featured-lang',
-      data: {
-        url: {
-          selector: 'a',
-          attr: 'href',
+  const actual: Wikipadia = await crawler.fetch({
+    target: 'https://www.wikipedia.org',
+    fetch: {
+      urls: {
+        listItem: '.central-featured-lang',
+        data: {
+          url: {
+            selector: 'a',
+            attr: 'href',
+          },
         },
       },
     },
@@ -59,7 +64,7 @@ test('it can crawl multi pages', async t => {
 
   const { crawler } = t.context;
 
-  const config: CrawlerConfig = {
+  const pages: HackerNewsPage[] = await crawler.fetch({
     target: {
       url: 'https://news.ycombinator.com',
       iterator: {
@@ -67,12 +72,10 @@ test('it can crawl multi pages', async t => {
         convert: (path) => `https://news.ycombinator.com/${path}`,
       },
     },
-    each: {
+    fetch: {
       title: '.title',
     },
-  };
-
-  const pages: HackerNewsPage[] = await crawler.crawl(config);
+  });
 
   t.is(pages.length, 30);
   t.true(pages[0].title !== '');
