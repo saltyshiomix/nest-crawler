@@ -31,7 +31,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@web-master/node-web-fetch": "^0.2.3"
+    "@web-master/node-web-fetch": "^0.3.0"
   },
   "devDependencies": {
     "@nestjs/common": "^6.5.3",

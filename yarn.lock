@@ -355,25 +355,25 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
   integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
 
-"@web-master/node-web-crawler@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.2.3.tgz#2effecb7b34f6509eb58ae535cff7b8a883c15b6"
-  integrity sha512-QOb8GDY93enfMmOB6HGa054gLBvpbi1FTed87HZqR3yeGjGGqr4X1AVYYKELbiEPg9wl6vkj8NvfN0f1MY8yUw==
+"@web-master/node-web-crawler@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.3.0.tgz#b46e58224337a31f15a06ed001db3d7a3ccdb928"
+  integrity sha512-iRf7zwzOXoFEl3E2pOOTRD38TPrxSLfwSgGkW4+5iFT7hathumPu8BvudjgmS8sRBJKjInXR7LrgqiAzymNvzg==
   dependencies:
-    "@web-master/node-web-scraper" "^0.2.3"
+    "@web-master/node-web-scraper" "^0.3.0"
 
-"@web-master/node-web-fetch@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.2.3.tgz#6fdd385f27d183f153de5c95eec61c69f5894326"
-  integrity sha512-enrMqevnvpiHrFsvC3hbkJiv7A27iy3kz5Q8Yfs2odM8WrmqwadlQof7sgYvryXq+9iZ3MzGCZBGK49z8FpM4Q==
+"@web-master/node-web-fetch@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.3.0.tgz#8cea9d8b54102d8e40acfe7b40abaf64312cd8a0"
+  integrity sha512-tPEsW2PmoIRB5Blu44xo6pCIMM/4rRV5qCzymC0FH4mtR41Qsxy9RIze60OjN/UNr8u4Tyn+/eSykcIBLlEn+g==
   dependencies:
-    "@web-master/node-web-crawler" "^0.2.3"
-    "@web-master/node-web-scraper" "^0.2.3"
+    "@web-master/node-web-crawler" "^0.3.0"
+    "@web-master/node-web-scraper" "^0.3.0"
 
-"@web-master/node-web-scraper@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.2.3.tgz#f3472df1f8cfb70d60f82121d1fc5930cee225e3"
-  integrity sha512-MtJg+nmZx0VPSZIC4XFbN0HKkds348/HCvbIzEzIgDUs5c5ebYHPQEKhB2reA1Fgm54qI8juqTF8LXnSWv2DxA==
+"@web-master/node-web-scraper@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.3.0.tgz#e1b7a13bb0d3b208ccf2fe93a6c66dfaed784dc1"
+  integrity sha512-i0mIbSqf8y57KO2dIgO5wOo+oyc/VxosycQLk7yVVCjR2x/nxpdfCiEEIh+O7rueJe8cORCy8b2gHWtveK64Lg==
   dependencies:
     scrape-it "^5.1.4"
 
