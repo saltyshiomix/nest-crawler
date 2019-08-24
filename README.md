@@ -112,11 +112,11 @@ export class CrawlerService {
 
     console.log(pages);
     // [
-    //   { title: 'An easiest crawling and scraping module for NestJS' },
-    //   { title: 'A minimalistic boilerplate on top of Webpack, Babel, TypeScript and React' },
+    //   { title: 'Post Title 1' },
+    //   { title: 'Post Title 2' },
     //   ...
     //   ...
-    //   { title: '[Experimental] React SSR as a view template engine' }
+    //   { title: 'Post Title 30' }
     // ]
   }
 }
@@ -187,9 +187,9 @@ export class CrawlerService {
         'https://example2.com',
         'https://example3.com',
       ],
-      fetch: {
+      fetch: () => ({
         title: '.title',
-      },
+      }),
     });
 
     console.log(data);
@@ -228,18 +228,74 @@ export class CrawlerService {
         },
       },
       // fetch each `https://news.ycombinator.com/${path}` and scrape data
-      fetch: {
+      fetch: () => ({
         title: '.title',
-      },
+      }),
     });
 
     console.log(data);
     // [
-    //   { title: 'An easiest crawling and scraping module for NestJS' },
-    //   { title: 'A minimalistic boilerplate on top of Webpack, Babel, TypeScript and React' },
+    //   { title: 'Post Title 1' },
+    //   { title: 'Post Title 2' },
     //   ...
     //   ...
-    //   { title: '[Experimental] React SSR as a view template engine' }
+    //   { title: 'Post Title 30' }
+    // ]
+  }
+}
+```
+
+#### You Need to Pass Data Dynamically
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { NestCrawlerService } from 'nest-crawler';
+
+@Injectable()
+export class CrawlerService {
+  constructor(
+    private readonly crawler: NestCrawlerService,
+  ) {}
+
+  public async crawl(): Promise<void> {
+    interface ImageHolder {
+      src: string;
+    }
+
+    const data: ImageHolder[] = await this.crawler.fetch({
+      target: {
+        url: 'https://some.image.com',
+        iterator: {
+          selector: 'span.age > a',
+          convert: (x: string) => `https://some.image.com${x}`,
+        },
+        fetch: {
+          imageIds: {
+            listItem: '.central-featured-lang',
+            data: {
+              id: {
+                selector: 'div.image-id',
+                attr: 'data-image-id',
+              },
+            },
+          },
+        },
+      },
+      // fetch each `https://some.image.com${x}`, pass data and scrape data
+      fetch: ({ imageIds }, index) => ({
+        src: {
+          convert: () => `https://some.image.com/images/${imageIds[index]}.png`,
+        },
+      }),
+    });
+
+    console.log(data);
+    // [
+    //   { src: 'https://some.image.com/images/1.png' },
+    //   { src: 'https://some.image.com/images/2.png' },
+    //   ...
+    //   ...
+    //   { src: 'https://some.image.com/images/100.png' }
     // ]
   }
 }
