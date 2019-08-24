@@ -7,9 +7,9 @@ import { CrawlerModule } from './crawler/crawler.module';
 import { CrawlerService } from './crawler/crawler.service';
 
 export {
-  CrawlerModule,
-  CrawlerService,
   FetchResult,
   CrawlerConfig,
   ScraperConfig,
+  CrawlerModule,
+  CrawlerService,
 }
