@@ -7,7 +7,7 @@ import {
 } from '@web-master/node-web-fetch';
 
 @Injectable()
-export class CrawlerService {
+export class NestCrawlerService {
   public async fetch<T>(config: CrawlerConfig | ScraperConfig): Promise<FetchResult<T>> {
     return fetch<T>(config);
   }
