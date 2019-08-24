@@ -29,11 +29,11 @@ First, register it in the application module so that Nest can handle dependencie
 
 ```ts
 import { Module } from '@nestjs/common';
-import { CrawlerModule } from 'nest-crawler';
+import { NestCrawlerModule } from 'nest-crawler';
 
 @Module({
   imports: [
-    CrawlerModule,
+    NestCrawlerModule,
   ],
 })
 export class AppModule {}
@@ -41,29 +41,29 @@ export class AppModule {}
 
 Then, just import it and use it:
 
-**my-crawler.module.ts**
+**crawler.module.ts**
 
 ```ts
 import { Module } from '@nestjs/common';
-import { CrawlerModule } from 'nest-crawler';
+import { NestCrawlerModule } from 'nest-crawler';
 @Module({
   imports: [
-    CrawlerModule,
+    NestCrawlerModule,
   ],
 })
-export class MyCrawlerModule {}
+export class CrawlerModule {}
 ```
 
-**my-crawler.service.ts**
+**crawler.service.ts**
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { CrawlerService } from 'nest-crawler';
+import { NestCrawlerService } from 'nest-crawler';
 
 @Injectable()
-export class MyCrawlerService {
+export class CrawlerService {
   constructor(
-    private readonly crawler: CrawlerService,
+    private readonly crawler: NestCrawlerService,
   ) {}
 
   // scraping the specific page
@@ -128,12 +128,12 @@ export class MyCrawlerService {
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { CrawlerService } from 'nest-crawler';
+import { NestCrawlerService } from 'nest-crawler';
 
 @Injectable()
-export class MyCrawlerService {
+export class CrawlerService {
   constructor(
-    private readonly crawler: CrawlerService,
+    private readonly crawler: NestCrawlerService,
   ) {}
 
   public async scrape(): Promise<void> {
@@ -168,12 +168,12 @@ export class MyCrawlerService {
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { CrawlerService } from 'nest-crawler';
+import { NestCrawlerService } from 'nest-crawler';
 
 @Injectable()
-export class MyCrawlerService {
+export class CrawlerService {
   constructor(
-    private readonly crawler: CrawlerService,
+    private readonly crawler: NestCrawlerService,
   ) {}
 
   public async crawl(): Promise<void> {
@@ -206,12 +206,12 @@ export class MyCrawlerService {
 
 ```ts
 import { Injectable } from '@nestjs/common';
-import { CrawlerService } from 'nest-crawler';
+import { NestCrawlerService } from 'nest-crawler';
 
 @Injectable()
-export class MyCrawlerService {
+export class CrawlerService {
   constructor(
-    private readonly crawler: CrawlerService,
+    private readonly crawler: NestCrawlerService,
   ) {}
 
   public async crawl(): Promise<void> {

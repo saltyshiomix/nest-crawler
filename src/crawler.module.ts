@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { CrawlerService } from './crawler.service';
+import { NestCrawlerService } from './crawler.service';
 
 @Module({
   providers: [
-    CrawlerService,
+    NestCrawlerService,
   ],
   exports: [
-    CrawlerService,
+    NestCrawlerService,
   ],
 })
-export class CrawlerModule {}
+export class NestCrawlerModule {}

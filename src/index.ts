@@ -3,13 +3,13 @@ import {
   CrawlerConfig,
   ScraperConfig,
 } from '@web-master/node-web-fetch';
-import { CrawlerModule } from './crawler.module';
-import { CrawlerService } from './crawler.service';
+import { NestCrawlerModule } from './crawler.module';
+import { NestCrawlerService } from './crawler.service';
 
 export {
   FetchResult,
   CrawlerConfig,
   ScraperConfig,
-  CrawlerModule,
-  CrawlerService,
+  NestCrawlerModule,
+  NestCrawlerService,
 }

@@ -1,11 +1,11 @@
 import ava, { TestInterface } from 'ava';
-import { CrawlerService } from './crawler.service';
+import { NestCrawlerService } from './crawler.service';
 
-const test = ava as TestInterface<{ crawler: CrawlerService }>;
+const test = ava as TestInterface<{ crawler: NestCrawlerService }>;
 
 test.beforeEach(t => {
   t.context = {
-    crawler: new CrawlerService,
+    crawler: new NestCrawlerService,
   };
 });
 
