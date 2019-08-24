@@ -3,8 +3,8 @@ import {
   CrawlerConfig,
   ScraperConfig,
 } from '@web-master/node-web-fetch';
-import { CrawlerModule } from './crawler/crawler.module';
-import { CrawlerService } from './crawler/crawler.service';
+import { CrawlerModule } from './crawler.module';
+import { CrawlerService } from './crawler.service';
 
 export {
   FetchResult,
