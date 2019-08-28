@@ -282,7 +282,7 @@
   dependencies:
     arrify "^1.0.1"
 
-"@nestjs/common@^6.5.3":
+"@nestjs/common@^6.6.0":
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.0.tgz#e266b0369398716a6afb479c82daed106c570231"
   integrity sha512-QkhvoZr8Qr+NBuOF/N5LRmyOL/PG9uV5NcQJRKKWA218W0c1x0/B66LqY4W128YYG963JWpojewowoWYHo4mCw==
