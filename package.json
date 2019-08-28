@@ -31,11 +31,10 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@web-master/node-web-fetch": "^0.3.0"
+    "@web-master/node-web-fetch": "^0.3.2"
   },
   "devDependencies": {
     "@nestjs/common": "^6.5.3",
-    "@types/cheerio": "^0.22.13",
     "@types/node": "^12.7.2",
     "ava": "^2.3.0",
     "reflect-metadata": "^0.1.13",
