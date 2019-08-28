@@ -67,13 +67,13 @@ test('it can crawl multi pages', async t => {
   const pages: HackerNewsPage[] = await crawler.fetch({
     target: {
       url: 'https://news.ycombinator.com',
-      crawl: {
+      iterator: {
         selector: 'span.age > a',
-        convert: (path) => `https://news.ycombinator.com/${path}`,
+        convert: (x: string) => `https://news.ycombinator.com/${x}`,
       },
     },
     fetch: () => ({
-      title: '.title',
+      title: '[class="title"] > a',
     }),
   });
 
