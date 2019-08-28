@@ -101,9 +101,9 @@ export class CrawlerService {
           convert: (path) => `https://news.ycombinator.com/${path}`,
         },
       },
-      fetch: {
-        title: '.title',
-      },
+      fetch: (data, index, url) => ({
+        title: '[class="title"] > a',
+      }),
     });
 
     console.log(pages);
@@ -184,7 +184,7 @@ export class CrawlerService {
         'https://example3.com',
       ],
       fetch: () => ({
-        title: '.title',
+        title: 'h1',
       }),
     });
 
@@ -220,12 +220,12 @@ export class CrawlerService {
         url: 'https://news.ycombinator.com',
         iterator: {
           selector: 'span.age > a',
-          convert: (path) => `https://news.ycombinator.com/${path}`,
+          convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
-      // fetch each `https://news.ycombinator.com/${path}` and scrape data
-      fetch: () => ({
-        title: '.title',
+      // fetch each `https://news.ycombinator.com/${x}` and scrape data
+      fetch: (data: any, index: number, url: string) => ({
+        title: '[class="title"] > a',
       }),
     });
 
@@ -278,7 +278,7 @@ export class CrawlerService {
         },
       },
       // fetch each `https://some.image.com${x}`, pass data and scrape data
-      fetch: ({ imageIds }, index) => ({
+      fetch: ({ imageIds }, index, url) => ({
         src: {
           convert: () => `https://some.image.com/images/${imageIds[index]}.png`,
         },
@@ -292,6 +292,49 @@ export class CrawlerService {
     //   ...
     //   ...
     //   { src: 'https://some.image.com/images/100.png' }
+    // ]
+  }
+}
+```
+
+#### Waitable (by using `puppeteer`)
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { NestCrawlerService } from 'nest-crawler';
+
+@Injectable()
+export class CrawlerService {
+  constructor(
+    private readonly crawler: NestCrawlerService,
+  ) {}
+
+  public async crawl(): Promise<void> {
+    interface TitleHolder {
+      title: string;
+    }
+
+    const data: TitleHolder[] = await this.crawler.fetch({
+      target: {
+        url: 'https://news.ycombinator.com',
+        iterator: {
+          selector: 'span.age > a',
+          convert: (x: string) => `https://news.ycombinator.com/${x}`,
+        },
+      },
+      waitFor: 3 * 1000, // wait for the content loaded! (like single page apps)
+      fetch: (data: any, index: number, url: string) => ({
+        title: '[class="title"] > a',
+      }),
+    });
+
+    console.log(data);
+    // [
+    //   { title: 'Post Title 1' },
+    //   { title: 'Post Title 2' },
+    //   ...
+    //   ...
+    //   { title: 'Post Title 30' }
     // ]
   }
 }
