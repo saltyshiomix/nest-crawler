@@ -16,11 +16,7 @@
 ## Installation
 
 ```bash
-# install it
 $ npm install --save nest-crawler
-
-# install @types/cheerio as dev dependencies
-$ npm install --save-dev @types/cheerio
 ```
 
 ## Usage
