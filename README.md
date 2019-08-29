@@ -173,11 +173,11 @@ export class CrawlerService {
   ) {}
 
   public async crawl(): Promise<void> {
-    interface TitleHolder {
+    interface Site {
       title: string;
     }
 
-    const data: TitleHolder[] = await this.crawler.fetch({
+    const sites: Site[] = await this.crawler.fetch({
       target: [
         'https://example1.com',
         'https://example2.com',
@@ -188,7 +188,7 @@ export class CrawlerService {
       }),
     });
 
-    console.log(data);
+    console.log(sites);
     // [
     //   { title: 'An easiest crawling and scraping module for NestJS' },
     //   { title: 'A minimalistic boilerplate on top of Webpack, Babel, TypeScript and React' },
@@ -211,11 +211,11 @@ export class CrawlerService {
   ) {}
 
   public async crawl(): Promise<void> {
-    interface TitleHolder {
+    interface Page {
       title: string;
     }
 
-    const data: TitleHolder[] = await this.crawler.fetch({
+    const pages: Page[] = await this.crawler.fetch({
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
@@ -229,7 +229,7 @@ export class CrawlerService {
       }),
     });
 
-    console.log(data);
+    console.log(pages);
     // [
     //   { title: 'Post Title 1' },
     //   { title: 'Post Title 2' },
@@ -254,11 +254,11 @@ export class CrawlerService {
   ) {}
 
   public async crawl(): Promise<void> {
-    interface ImageHolder {
+    interface Img {
       src: string;
     }
 
-    const data: ImageHolder[] = await this.crawler.fetch({
+    const images: Img[] = await this.crawler.fetch({
       target: {
         url: 'https://some.image.com',
         iterator: {
@@ -267,10 +267,10 @@ export class CrawlerService {
         },
         fetch: {
           imageIds: {
-            listItem: '.central-featured-lang',
+            listItem: 'div[class="image"]',
             data: {
               id: {
-                selector: 'div.image-id',
+                selector: 'div[class="image-wrapper"]',
                 attr: 'data-image-id',
               },
             },
@@ -278,14 +278,14 @@ export class CrawlerService {
         },
       },
       // fetch each `https://some.image.com${x}`, pass data and scrape data
-      fetch: ({ imageIds }, index, url) => ({
+      fetch: (data: any, index: number, url: string) => ({
         src: {
-          convert: () => `https://some.image.com/images/${imageIds[index]}.png`,
+          convert: () => `https://some.image.com/images/${data.imageIds[index]}.png`,
         },
       }),
     });
 
-    console.log(data);
+    console.log(images);
     // [
     //   { src: 'https://some.image.com/images/1.png' },
     //   { src: 'https://some.image.com/images/2.png' },
@@ -310,11 +310,11 @@ export class CrawlerService {
   ) {}
 
   public async crawl(): Promise<void> {
-    interface TitleHolder {
+    interface Page {
       title: string;
     }
 
-    const data: TitleHolder[] = await this.crawler.fetch({
+    const pages: Page[] = await this.crawler.fetch({
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
@@ -328,7 +328,7 @@ export class CrawlerService {
       }),
     });
 
-    console.log(data);
+    console.log(pages);
     // [
     //   { title: 'Post Title 1' },
     //   { title: 'Post Title 2' },
