@@ -282,10 +282,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@nestjs/common@^6.6.0":
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.0.tgz#e266b0369398716a6afb479c82daed106c570231"
-  integrity sha512-QkhvoZr8Qr+NBuOF/N5LRmyOL/PG9uV5NcQJRKKWA218W0c1x0/B66LqY4W128YYG963JWpojewowoWYHo4mCw==
+"@nestjs/common@^6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.2.tgz#5a1aacd3eb1e2b8e38740f3c9a2233fc19557893"
+  integrity sha512-d7/OLI/f04LX0wgFPGuEO2ApNr4Nosn7r7JFaKQFAH1X1j0xOdXwnknUmA9AP06Nta72EAAWWI2a+hOIQBp+NQ==
   dependencies:
     axios "0.19.0"
     cli-color "1.4.0"
@@ -348,25 +348,25 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
   integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
 
-"@web-master/node-web-crawler@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.6.0.tgz#8418e2eeb3c145f5adeb8e57ddcc7b6ffbb8638f"
-  integrity sha512-eRtJDCEJ0+zd9LfTaY9iVkApoIH2ia9P3xvVjpp6DHDsuuh1YZWHQ6mUNaCX6fRzQZzqVjYAwRIoUcksMkZ6FA==
+"@web-master/node-web-crawler@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.6.1.tgz#75e07fc86b168521c97d991a9fb79e5df69914c5"
+  integrity sha512-RCI/haj+K1KVVe5Sj2a85/tu1F39zgt8JIylz9bVbeUtSqLHyoLSqrfjf9q1YKvOUi4CMxdnxzjjoGvzRqZ4xA==
   dependencies:
-    "@web-master/node-web-scraper" "^0.6.0"
+    "@web-master/node-web-scraper" "^0.6.1"
 
-"@web-master/node-web-fetch@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.6.0.tgz#cc648b2fc25634205786dc43ebba29c13ff30dbd"
-  integrity sha512-2QPcD0OZ8DbHzE28PWULwhXKWyMWVD1sEOExgW26b+D223zyZ29ngVbS3E1xkuFg1gxQRao6Ijccap/CKD1FJQ==
+"@web-master/node-web-fetch@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.6.1.tgz#fce403943f36e24084251e8c6fecef9dfd00c7ce"
+  integrity sha512-86z9Q0wkF84jq06PyN1Mimo3gkM7RiqdB3c+LO2NmsA0uvDwwPMEER+zEHJoW0YtoAs//lTxp+KZSo+hcnE10Q==
   dependencies:
-    "@web-master/node-web-crawler" "^0.6.0"
-    "@web-master/node-web-scraper" "^0.6.0"
+    "@web-master/node-web-crawler" "^0.6.1"
+    "@web-master/node-web-scraper" "^0.6.1"
 
-"@web-master/node-web-scraper@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.6.0.tgz#971afddd1191a6817dc7813cf82e82059a1e444a"
-  integrity sha512-EKCxYQuNzYuics+HWpZIRNoJt9DrgY9rzfr+9y3RoCtX0Vf4XmUpI5C/Agz5VKlQk6oTmfu+W5NRQ2IODJ7pbA==
+"@web-master/node-web-scraper@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.6.1.tgz#9207ca0570b5cb7ba7f375db2227e55582044dca"
+  integrity sha512-sMhMphSLFlr/LiZrfJ8jrW724Wnmb9N7wGWEBziPTXApZnoAHsLdZtwFjBIVqWQPsAy80ITorWZKDkVqx8aP4g==
   dependencies:
     css-select "^2.0.2"
     domutils "^2.0.0"
@@ -3033,10 +3033,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.5.3:
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
-  integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
+typescript@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.2.tgz#105b0f1934119dde543ac8eb71af3a91009efe54"
+  integrity sha512-lmQ4L+J6mnu3xweP8+rOrUwzmN+MRAj7TgtJtDaXE5PMyX2kCrklhg3rvOsOIfNeAWMQWO2F1GPc1kMD2vLAfw==
 
 uid2@0.0.3:
   version "0.0.3"
