@@ -97,11 +97,11 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span.age > a',
-          convert: (path) => `https://news.ycombinator.com/${path}`,
+          selector: 'span[class="age"] > a',
+          convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
-      fetch: (data, index, url) => ({
+      fetch: (data: any, index: number, url: string) => ({
         title: '[class="title"] > a',
       }),
     });
@@ -183,7 +183,7 @@ export class CrawlerService {
         'https://example2.com',
         'https://example3.com',
       ],
-      fetch: () => ({
+      fetch: (data: any, index: number, url: string) => ({
         title: 'h1',
       }),
     });
@@ -219,7 +219,7 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span.age > a',
+          selector: 'span[class="age"] > a',
           convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
@@ -262,7 +262,7 @@ export class CrawlerService {
       target: {
         url: 'https://some.image.com',
         iterator: {
-          selector: 'span.age > a',
+          selector: 'span[class="age"] > a',
           convert: (x: string) => `https://some.image.com${x}`,
         },
         fetch: {
@@ -318,7 +318,7 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span.age > a',
+          selector: 'span[class="age"] > a',
           convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },

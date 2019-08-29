@@ -3,7 +3,6 @@
     "module": "commonjs",
     "target": "es2017",
     "strict": true,
-    "pretty": true,
     "sourceMap": true,
     "declaration": true,
     "removeComments": true,
