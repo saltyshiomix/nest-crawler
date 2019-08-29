@@ -348,25 +348,25 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
   integrity sha512-dyYO+f6ihZEtNPDcWNR1fkoTDf3zAK3lAABDze3mz6POyIercH0lEUawUFXlG8xaQZmm1yEBON/4TsYv/laDYg==
 
-"@web-master/node-web-crawler@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.6.1.tgz#75e07fc86b168521c97d991a9fb79e5df69914c5"
-  integrity sha512-RCI/haj+K1KVVe5Sj2a85/tu1F39zgt8JIylz9bVbeUtSqLHyoLSqrfjf9q1YKvOUi4CMxdnxzjjoGvzRqZ4xA==
+"@web-master/node-web-crawler@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-crawler/-/node-web-crawler-0.7.0.tgz#b425398fbcd3350d194bf5447192541936510b92"
+  integrity sha512-Lk6MakQn9QRIG+gB6DYF91zqCiGsoMgi0aoCq1f/1SxfNLwekNqiTrsOShhDqjKHewf8+c3/sIEkYsuPXGg7Vw==
   dependencies:
-    "@web-master/node-web-scraper" "^0.6.1"
+    "@web-master/node-web-scraper" "^0.7.0"
 
-"@web-master/node-web-fetch@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.6.1.tgz#fce403943f36e24084251e8c6fecef9dfd00c7ce"
-  integrity sha512-86z9Q0wkF84jq06PyN1Mimo3gkM7RiqdB3c+LO2NmsA0uvDwwPMEER+zEHJoW0YtoAs//lTxp+KZSo+hcnE10Q==
+"@web-master/node-web-fetch@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-fetch/-/node-web-fetch-0.7.0.tgz#5033fefcb79b3e15398687858ef184b24bab0976"
+  integrity sha512-Rg9xkTouV45kwfm/15X3ioPeOsE198vJx5jfdxC7XNcNBc7LBBdVULiano4kzNORBLLJrUEcXQspseyNQqNfbQ==
   dependencies:
-    "@web-master/node-web-crawler" "^0.6.1"
-    "@web-master/node-web-scraper" "^0.6.1"
+    "@web-master/node-web-crawler" "^0.7.0"
+    "@web-master/node-web-scraper" "^0.7.0"
 
-"@web-master/node-web-scraper@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.6.1.tgz#9207ca0570b5cb7ba7f375db2227e55582044dca"
-  integrity sha512-sMhMphSLFlr/LiZrfJ8jrW724Wnmb9N7wGWEBziPTXApZnoAHsLdZtwFjBIVqWQPsAy80ITorWZKDkVqx8aP4g==
+"@web-master/node-web-scraper@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@web-master/node-web-scraper/-/node-web-scraper-0.7.0.tgz#50137e4345854840d58b16650a3746cf9fe92ec2"
+  integrity sha512-Y/0Q16sT9+jdY0c4dhC5iymqud41VjziwrHuMrCg8TJU+3G8ARgaXnoeB5Bnwmk2v4LHLiMWenphjShuqBuiFw==
   dependencies:
     css-select "^2.0.2"
     domutils "^2.0.0"
