@@ -282,10 +282,10 @@
   dependencies:
     arrify "^1.0.1"
 
-"@nestjs/common@^6.6.0":
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.0.tgz#e266b0369398716a6afb479c82daed106c570231"
-  integrity sha512-QkhvoZr8Qr+NBuOF/N5LRmyOL/PG9uV5NcQJRKKWA218W0c1x0/B66LqY4W128YYG963JWpojewowoWYHo4mCw==
+"@nestjs/common@^6.6.2":
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-6.6.2.tgz#5a1aacd3eb1e2b8e38740f3c9a2233fc19557893"
+  integrity sha512-d7/OLI/f04LX0wgFPGuEO2ApNr4Nosn7r7JFaKQFAH1X1j0xOdXwnknUmA9AP06Nta72EAAWWI2a+hOIQBp+NQ==
   dependencies:
     axios "0.19.0"
     cli-color "1.4.0"
