@@ -33,7 +33,8 @@ const detectScale = (x: string): number => {
   return 1;
 }
 
-const normalizeNumber = (x: string): number => {
+const normalizeNumber = (x: string | number): number => {
+  typeof x === 'number' && (x = x.toString());
   x = preNormalize(x);
   const scale: number = detectScale(x);
   if (scale === 1) {
