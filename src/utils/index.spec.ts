@@ -6,6 +6,10 @@ test('1', t => {
 });
 
 test('1.1', t => {
+  t.is(normalizeNumber(1.1), 1.1);
+});
+
+test('1.2', t => {
   t.is(normalizeNumber('1.2'), 1.2);
 });
 
