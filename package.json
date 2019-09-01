@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@nestjs/common": "^6.6.3",
-    "@types/node": "^12.7.2",
+    "@types/node": "^12.7.3",
     "ava": "^2.3.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
