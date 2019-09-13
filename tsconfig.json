@@ -7,9 +7,9 @@
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": true
   },
   "exclude": [
-    "node_modules",
-  ],
+    "node_modules"
+  ]
 }
