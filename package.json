@@ -34,7 +34,7 @@
     "@web-master/node-web-fetch": "^0.8.0"
   },
   "devDependencies": {
-    "@nestjs/common": "^6.6.7",
+    "@nestjs/common": "^6.7.2",
     "@types/node": "^12.7.5",
     "ava": "^2.3.0",
     "reflect-metadata": "^0.1.13",
