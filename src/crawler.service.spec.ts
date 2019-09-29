@@ -47,7 +47,7 @@ test('it can scrape one page as a list object', async t => {
     target: 'https://www.wikipedia.org',
     fetch: {
       sites: {
-        listItem: '[class="central-featured"] a[class="link-box"]',
+        listItem: '.central-featured a.link-box',
         data: {
           url: {
             attr: 'href',
@@ -73,12 +73,12 @@ test('it can crawl multi pages', async t => {
     target: {
       url: 'https://news.ycombinator.com',
       iterator: {
-        selector: 'span[class="age"] > a',
+        selector: 'span.age > a',
         convert: (x: string) => `https://news.ycombinator.com/${x}`,
       },
     },
     fetch: () => ({
-      title: '[class="title"] > a',
+      title: '.title > a',
     }),
   });
 
@@ -97,13 +97,13 @@ test('it can crawl multi pages (waitable)', async t => {
     target: {
       url: 'https://news.ycombinator.com',
       iterator: {
-        selector: 'span[class="age"] > a',
+        selector: 'span.age > a',
         convert: (x: string) => `https://news.ycombinator.com/${x}`,
       },
     },
     waitFor: 1 * 1000,
     fetch: () => ({
-      title: '[class="title"] > a',
+      title: '.title > a',
     }),
   });
 

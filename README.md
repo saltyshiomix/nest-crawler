@@ -97,12 +97,12 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span[class="age"] > a',
+          selector: 'span.age > a',
           convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
       fetch: (data: any, index: number, url: string) => ({
-        title: '[class="title"] > a',
+        title: '.title > a',
       }),
     });
 
@@ -219,13 +219,13 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span[class="age"] > a',
+          selector: 'span.age > a',
           convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
       // fetch each `https://news.ycombinator.com/${x}` and scrape data
       fetch: (data: any, index: number, url: string) => ({
-        title: '[class="title"] > a',
+        title: '.title > a',
       }),
     });
 
@@ -262,15 +262,15 @@ export class CrawlerService {
       target: {
         url: 'https://some.image.com',
         iterator: {
-          selector: 'span[class="age"] > a',
+          selector: 'span.age > a',
           convert: (x: string) => `https://some.image.com${x}`,
         },
         fetch: {
           imageIds: {
-            listItem: 'div[class="image"]',
+            listItem: 'div.image',
             data: {
               id: {
-                selector: 'div[class="image-wrapper"]',
+                selector: 'div.image-wrapper',
                 attr: 'data-image-id',
               },
             },
@@ -318,13 +318,13 @@ export class CrawlerService {
       target: {
         url: 'https://news.ycombinator.com',
         iterator: {
-          selector: 'span[class="age"] > a',
+          selector: 'span.age > a',
           convert: (x: string) => `https://news.ycombinator.com/${x}`,
         },
       },
       waitFor: 3 * 1000, // wait for the content loaded! (like single page apps)
       fetch: (data: any, index: number, url: string) => ({
-        title: '[class="title"] > a',
+        title: '.title > a',
       }),
     });
 
