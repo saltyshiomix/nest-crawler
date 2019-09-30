@@ -67,6 +67,7 @@ export class CrawlerService {
     interface ExampleCom {
       title: string;
       info: string;
+      content: string;
     }
 
     const data: ExampleCom = await this.crawler.fetch({
@@ -77,13 +78,18 @@ export class CrawlerService {
           selector: 'p > a',
           attr: 'href',
         },
+        content: {
+          selector: '.content',
+          how: 'html',
+        },
       },
     });
 
     console.log(data);
     // {
     //   title: 'Example Domain',
-    //   info: 'http://www.iana.org/domains/example'
+    //   info: 'http://www.iana.org/domains/example',
+    //   content: '<div><h1>Example Heading</h1><p>Example Paragraph</p></div>'
     // }
   }
 
@@ -136,6 +142,7 @@ export class CrawlerService {
     interface ExampleCom {
       title: string;
       info: string;
+      content: string;
     }
 
     const data: ExampleCom = await this.crawler.fetch({
@@ -146,13 +153,18 @@ export class CrawlerService {
           selector: 'p > a',
           attr: 'href',
         },
+        content: {
+          selector: '.content',
+          how: 'html',
+        }
       },
     });
 
     console.log(data);
     // {
     //   title: 'Example Domain',
-    //   info: 'http://www.iana.org/domains/example'
+    //   info: 'http://www.iana.org/domains/example',
+    //   content: '<div><h1>Example Heading</h1><p>Example Paragraph</p></div>'
     // }
   }
 }
