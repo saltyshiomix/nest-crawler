@@ -1,6 +1,6 @@
 {
   "name": "nest-crawler",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "An easiest crawling and scraping module for NestJS",
   "repository": "git@github.com:saltyshiomix/nest-crawler.git",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
@@ -31,10 +31,10 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@web-master/node-web-fetch": "^0.9.0"
+    "@web-master/node-web-fetch": "^0.10.0"
   },
   "devDependencies": {
-    "@nestjs/common": "^6.7.2",
+    "@nestjs/common": "^6.8.5",
     "@types/node": "^12.7.8",
     "ava": "^2.4.0",
     "reflect-metadata": "^0.1.13",
