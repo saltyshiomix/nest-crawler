@@ -29,7 +29,7 @@ test('it can scrape one page as a object', async t => {
   });
 
   t.is(actual.title, 'Example Domain');
-  t.is(actual.info, 'http://www.iana.org/domains/example');
+  t.is(actual.info, 'https://www.iana.org/domains/example');
 });
 
 test('it can scrape one page as a list object', async t => {
